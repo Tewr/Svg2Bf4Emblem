@@ -369,6 +369,13 @@ footer a:hover {
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
 
+img.logo {
+	float: left;
+	margin: 30px;
+}
+
+	
+
 /* #Media Queries
 ================================================== */
 
@@ -402,6 +409,13 @@ footer a:hover {
     padding-right: 0;
     margin-left: 0;
   }
+  
+  img.logo {
+	float: none;
+	margin: auto;
+	text-align: middle;
+  }
+
 }
 
 /* All Mobile Sizes (devices and browser) */
@@ -469,6 +483,11 @@ footer a:hover {
     content: none;
     padding-right: 0;
     margin-left: 0;
+  }
+  
+  img.logo {
+	float: none;
+	margin: 2px;
   }
 }
 
