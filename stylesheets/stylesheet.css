@@ -370,8 +370,8 @@ footer a:hover {
 .clearfix {display: block;}
 
 img.logo {
-	float: left;
-	margin: 30px;
+	float: right;
+	margin: 20px;
 }
 
 	
@@ -410,12 +410,6 @@ img.logo {
     margin-left: 0;
   }
   
-  img.logo {
-	float: none;
-	margin: auto;
-	text-align: middle;
-  }
-
 }
 
 /* All Mobile Sizes (devices and browser) */
