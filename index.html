@@ -4,6 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
@@ -13,6 +14,25 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+  <script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="//raw.github.com/Tewr/Svg2Bf4Emblem/master/Svg2b4Emblem.min.js"></script>
+  <script type="text/javascript">
+  
+    
+  $( document ).ready(function() {
+  
+  	var log = function(t) { $("#info").text($("#info").text() + "\n" + t); };
+  
+  	var doConversion = function() {
+  		var results = Svg2b4Emblem.convert($.trim($("#svg").val()), log);
+  		$("#result").val("emblem.emblem.load(" + JSON.stringify({ objects : results })+ ")");
+  	};
+  	
+  	$("#convertbutton").click(doConversion);
+  	var test = new Svg2b4EmblemTests(log);
+  	test.runAll();
+  });
+  </script>
     <title>Svg2bf4emblem by Tewr</title>
   </head>
 
@@ -52,8 +72,13 @@
 <h2>
 <a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
 
-<p>Create an 320x320 svg in your favorite vector editor (read: illustrator, or it has not been tested). 
-Once your'e happy with the result, save as SVG. Paste the contents on the "Try it" page.</p>
+<p>
+Create an 320x320 svg in your favorite vector editor (read: illustrator, or it has not been tested). 
+Once your'e happy with the result, save as SVG. Paste the contents below and push "convert". 
+Check for errors in the messages box. If all is well, continue as usual to add the emblem in the bf4 editor.
+Instructions on how to continue from here on exists in several places, try google, or check out <a href="http://emblemsbf.com/">This site</a> 
+which provides instructions if you click on an emblem (no affiliation).
+</p>
 
 <h2>
 <a name="try-it" class="anchor" href="#try-it"><span class="octicon octicon-link"></span></a>Try it</h2>
@@ -61,17 +86,21 @@ Once your'e happy with the result, save as SVG. Paste the contents on the "Try i
 <h3>
 <a name="paste-the-contents-of-your-svg-file-here" class="anchor" href="#paste-the-contents-of-your-svg-file-here"><span class="octicon octicon-link"></span></a>Paste the contents of your svg file here</h3>
 
-<p><br></p>
+
+<p><textarea id="svg" cols="50" rows="10"></textarea>
+<br/>
+<input type="button" value="convert" id="convertbutton" /></p>
 
 <h3>
 <a name="results-for-your-bf4-editor" class="anchor" href="#results-for-your-bf4-editor"><span class="octicon octicon-link"></span></a>Results for your bf4 editor</h3>
 
-<p></p>
+<p><textarea id="result" cols="50" rows="10"></textarea></p>
 
 <h3>
 <a name="messages" class="anchor" href="#messages"><span class="octicon octicon-link"></span></a>Messages</h3>
 
-<p></p>
+
+<p><textarea id="info" cols="50" rows="10"></textarea></p>
 
 <h2>
 <a name="licence" class="anchor" href="#licence"><span class="octicon octicon-link"></span></a>Licence</h2>
