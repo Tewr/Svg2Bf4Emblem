@@ -54,6 +54,17 @@
 <p>As the <a href="http://battlelog.battlefield.com/bf4/emblem/edit/personal">battlefield 4</a> emblem editor is quite frustrating to use, importing SVG's could be nice. Something similar was available for battlefield 3 plutoon emblems I think.</p>
 
 <h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>
+Create an 320x320 image in your favorite vector editor (read: illustrator, or it has not been tested). You may only use the tools line, ellipsis, and squares.
+Once your'e happy with the result, save as SVG. Open the svg in a text editor, copy the contents, paste in the box<a href="#try-it">below</a>, and and push "convert". 
+Check for errors in the messages box. If all is well, copy the code from results and continue as usual to add the emblem in the <a href="http://battlelog.battlefield.com/bf4/emblem/edit/personal">bf4 editor</a>.
+Instructions on how to continue from here on exists in several places, try google, or check out <a href="http://emblemsbf.com/">this site</a> 
+which provides instructions if you click on an emblem (no affiliation). Basically you need to launch the js code from the result window on the editor somehow.
+</p>
+
+<h2>
 <a name="limitations" class="anchor" href="#limitations"><span class="octicon octicon-link"></span></a>Limitations</h2>
 
 <p>The current version is very simple and only supports lines, ellipses and rectangles. None of the other objects that can be used in the online battlefield 4 editor can be used, if you want to use them you will have to add them in the online editor once the svg is imported.</p>
@@ -64,16 +75,36 @@
 
 <p>Finally, the editor itself only supports 40 objects, so you are limited to this as well.</p>
 
-<h2>
-<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
 
-<p>
-Create an 320x320 image in your favorite vector editor (read: illustrator, or it has not been tested). 
-Once your'e happy with the result, save as SVG. Open the svg in a text editor, copy the contents, paste in the box below, and and push "convert". 
-Check for errors in the messages box. If all is well, copy the code from results and continue as usual to add the emblem in the <a href="http://battlelog.battlefield.com/bf4/emblem/edit/personal">bf4 editor</a>.
-Instructions on how to continue from here on exists in several places, try google, or check out <a href="http://emblemsbf.com/">this site</a> 
-which provides instructions if you click on an emblem (no affiliation). Basically you need to launch the code from the result window on the editor somehow.
-</p>
+<h2>
+<a name="future-development" class="anchor" href="#future-development"><span class="octicon octicon-link"></span></a>Future development</h2>
+
+<p>The possible future developments for this project could adress a few of the limitations above. Heres a few thoughts (some which have already been concluded as bad ideas, kept for reference):</p>
+<ol>
+	<li>
+		<p>
+			importing the svg from battlelog. It then instantly becomes a path element, which means I cannot recognize it when it comes back out unless it hasn't been modified at all - which is totally useless.
+
+		</p>
+	</li>
+	<li>
+		<p>
+			Importing a shape as a rendering (png or similar). This could be feasable but it means that somehow a conversion must be made and once it has been made the user cannot change the color, as it's an image object. I was thinking of implementing this at least for the part when the image is done one because it's really easy, just add a few lines to my existing code but in the end kind of boring with the color limitation, youre better of with the online editor here in my opinion. but then I need to add something a bit more complicated, unless the user should be forced to a) download the svg from battlelog b) change to the color you want c) render to png d) importing to your image. It's just too many steps and I could not do this in pure javascript so I would have to make users install some kind of additional converter to do this.
+		</p>
+			
+	</li>
+	<li>
+		<p>
+			Path support. IMplementation would be: Take a path, try to recognize some of it's properties and map the available bf shapes unto it. for example, a curved path could be represented by a bent arrow somehow. It would be fun to do just because the code would be, with my measures, extremely complex and close to artificial intelligence. I like a challenge, but I am afraid that I would be way over my head with this one. Then again, nothing is impossible.
+
+		</p>
+	</li>
+	<li>
+		<p>
+			Ascii-style: do the same thing an ascii converter does: take an existing image and replace it with a resembling ascii representation. But instead of the alphabet, it would be the bf4 shapes. Come to think of it, it's kind of the same thing as the previous suggestion, but we would work with the picture as a whole instead of individual paths. It might be more realistic. Thing is, as we only have 20/40 objects to work with, I am guessing anything we can spit out will be kind of ugly. As you might know, an image -> ascii converter seldomly generates something pretty unless the output resolution is really high (many letters) or input resolution is very low.	
+		</p>
+	</li>
+</ol>
 
 <h2>
 <a name="try-it" class="anchor" href="#try-it"><span class="octicon octicon-link"></span></a>Try it</h2>
